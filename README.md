@@ -35,9 +35,24 @@ pip install -r requirements.txt
 
 该软件的已编译exe文件(中文版)已经在release中发布了。
 
-- 2.4.2 Developer Beta[GitHub Release](https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
-- 2.4.2 Developer Beta[Github Mirror in China](https://ghproxy.com/https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
+- 2.4.2 Developer Beta [GitHub Release](https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
+- 2.4.2 Developer Beta [Github Mirror in China](https://ghproxy.com/https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
 
+## 4.更新日志/Update log
+
+- 2022/3/6 添加自动检测和生成settings.txt的代码，目录下没有settings.txt不会报错或者闪退了。
+- 2022/3/5 添加settings.txt可以让用户自主选择是否开启pyttsx3语音播报
+- 2022/3/4 添加目录并给用户更多选项
+- 2022/3/3 将这个陈旧的代码翻出来重构并重新编写
+- 2021/8/24 电脑坏了，而且没有提交到GitHub，花了一个月时间构建的代码全部嗝屁，只留下了8行基本代码
+- 2021/8/19 1.1.0Pro版本在QQ上面适配大获成功，开始进行错误封装与代码完善
+- 2021/7/31 开始在原有API基础上进行在[nonebot2](https://github.com/nonebot/nonebot2)框架下的QQ机器人适配
+- 2021/7/28 1.0.2版本发布 支持pyttsx3语音播报但没法关掉
+- 2021/7/24 1.0.0正式版发布 修复了闪退等大量bug
+- 2021/7/19 1.0.0Developer Beta2发布 进行少量内部人员测试
+- 2021/7/17 1.0.0Developer Beta发布 支持基本的智能聊天
+- 2021/7/14 1.0.0版本开始编写
+- 2021/7/1 开始放暑假，开始构思并查找资料
 
 ## LICENSE
 
