@@ -3,12 +3,20 @@ import sys
 import time
 from datetime import datetime
 import pytz
-import pyttsx3
-import webbrowser
+# 注意：pyttsx3一定要是2.72版本，高于2.72版本一定会出错！
+import pyttsx3 # 语音输出
+import webbrowser # 打开浏览器
+
+# speaking_open:判断用户是否打开了语音输出功能
 speaking_open=False
+
+# writingdata函数用法：
+# 无入参
+# 无返回值
+# 导入settings.txt中用户保存的speaking_open数据，并在settings.txt没有数据的时候进行数据初始化
 def writingdata():
     global speaking_open
-    with open("settings.txt","r") as settings_read:
+    with open("settings.txt","r",encoding="utf-8") as settings_read:
         s=settings_read.read()
         settings_read.close()
     if s=="SPEAKING=TRUE":
@@ -18,7 +26,7 @@ def writingdata():
         speaking_open=False
         return
     else :
-        with open("settings.txt","w") as settings:
+        with open("settings.txt","w",encoding="utf-8") as settings:
             s_input=input("首次启动该软件，正在初始化...请输入你是否要开启语音输入？y/n,非法输入则为n")
             if s_input in ['y','yes','是','True','true','Yes']:
                 settings.write("SPEAKING=TRUE")
@@ -31,10 +39,10 @@ def writingdata():
                 settings.close()
                 return
     settings.close()
-    
-print("欢迎使用马哥聊天聊天机器人！")
+
+# 在用户输入-c即主动要求修改语音输出配置时进行修改
 def changedata():
-        with open("settings.txt","w") as settings:
+        with open("settings.txt","w",encoding="utf-8") as settings:
             s_input=input("请输入你是否要开启语音输入？y/n,非法输入则为n：")
             if s_input in ['y','yes','是','True','true','Yes']:
                 settings.write("SPEAKING=TRUE")
@@ -47,6 +55,9 @@ def changedata():
                 speaking_open=False
                 settings.close()
                 return
+
+
+# 输出 MIT LICENSE
 def mitlicense():
     print('''
 Copyright (C) 2021-2022  BillMa
@@ -54,6 +65,8 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ''')
+
+# 输出作者联系方式
 def contactau():
     print("""
 QQ:36937975
@@ -61,7 +74,10 @@ Email: maboning237103015@163.com
 GitHub/Gitee: billma007
 Website:https://billma.top
 """)
-print('''
+
+# 开始欢迎界面和如何使用
+def help_about():
+    print('''
 欢迎使用马哥聊天聊天机器人2.4.2 Developer Beta！
 本软件由 BillMa编写，BillMa版权所有，本项目未经允许禁止商用
 本项目已经开源，开源地址：https://github.com/billma007/mgchatrobot2或者在下面输入\"-git\"到达
@@ -76,9 +92,12 @@ print('''
 4. -mit 查看 MIT LICENSE相关内容
 5. -contact 联系作者
 6. -official 前往官方网站(网站暂未完全开发，暂时无法访问）
+7. -help 或者 -about 本程序的帮助和关于界面
+8. -
 7. 同时按下Crrl+C结束程序。
 可以开始愉快的聊天了！
 ''')
+
 while True:
     writingdata()
     a=input("你：")
@@ -99,9 +118,9 @@ while True:
         url='https://api.ownthink.com/bot?appid=9ffcb5785ad9617bf4e64178ac64f7b1&spoken=%s'%a
         te=requests.get(url).json()
         data=te['data']['info']['text']
+        print(data)
         if speaking_open==True:
            pt = pyttsx3.init()
            pt.say(data)
            pt.runAndWait()
-        print(data)
 

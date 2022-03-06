@@ -1,0 +1,5 @@
+requests
+datetime
+pyttsx3==2.71
+pytz 
+pywin32
