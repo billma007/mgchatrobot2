@@ -26,10 +26,18 @@ pip install -r requirements.txt
 
 你会看到如下文件:/you will see:
 
-- main.py  ------包含完整功能
-- easy.py  ------最简单的代码，方便理解与移植
-- settings.txt -------这玩意一定要有，里面写什么无所谓，但一定要有!编译完成后的EXE文件下面也要放一个！
-- requirements.txt ------依赖库
+- main.py  ------包含完整功能/Full functionality included
+- easy.py  ------最简单的代码，方便理解与移植/The simplest code, easy to understand and transplant
+- settings.txt -------配置文件。在2.4.2Beta2版本后可以自动生成/configuration file
+- requirements.txt ------依赖库/Requirements
+
+## 3.下载已编译release版本/download
+
+该软件的已编译exe文件(中文版)已经在release中发布了。
+
+- 2.4.2 Developer Beta[GitHub Release](https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
+- 2.4.2 Developer Beta[Github Mirror in China](https://ghproxy.com/https://github.com/billma007/mgchatrobot2/releases/download/2.4.2DeveloperBeta/2.4.2beta2.exe)
+
 
 ## LICENSE
 
