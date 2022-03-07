@@ -1,5 +1,5 @@
 import requests
-import sys
+import sys,os
 import time
 from datetime import datetime
 import pytz
@@ -9,25 +9,45 @@ import webbrowser # 打开浏览器
 
 # speaking_open:判断用户是否打开了语音输出功能
 speaking_open=False
-
+# 判断settings.txt是否存在
+def setting_if_exist():
+    filename="settings.txt"
+    if not os.path.exists(filename):
+        return False
+    else :
+        return True
 # writingdata函数用法：
 # 无入参
 # 无返回值
 # 导入settings.txt中用户保存的speaking_open数据，并在settings.txt没有数据的时候进行数据初始化
 def writingdata():
     global speaking_open
-    with open("settings.txt","r",encoding="utf-8") as settings_read:
-        s=settings_read.read()
-        settings_read.close()
-    if s=="SPEAKING=TRUE":
-        speaking_open=True
-        return
-    elif s=="SPEAKING=FALSE":
-        speaking_open=False
-        return
-    else :
+    if setting_if_exist():
+        with open("settings.txt","r",encoding="utf-8") as settings_read:
+            s=settings_read.read()
+            settings_read.close()
+        if s=="SPEAKING=TRUE":
+            speaking_open=True
+            return
+        elif s=="SPEAKING=FALSE":
+            speaking_open=False
+            return
+        else :
+            with open("settings.txt","w",encoding="utf-8") as settings:
+                s_input=input("数据文件读取出现错误，请输入你是否要开启语音输入？y/n,非法输入则为n")
+                if s_input in ['y','yes','是','True','true','Yes']:
+                    settings.write("SPEAKING=TRUE")
+                    speaking_open=True
+                    settings.close()
+                    return
+                else :
+                    settings.write("SPEAKING=FALSE")
+                    speaking_open=False
+                    settings.close()
+                    return
+    else:
         with open("settings.txt","w",encoding="utf-8") as settings:
-            s_input=input("首次启动该软件，正在初始化...请输入你是否要开启语音输入？y/n,非法输入则为n")
+            s_input=input("首次使用该软件，请输入你是否要开启语音输入？y/n,非法输入则为n")
             if s_input in ['y','yes','是','True','true','Yes']:
                 settings.write("SPEAKING=TRUE")
                 speaking_open=True
@@ -38,8 +58,6 @@ def writingdata():
                 speaking_open=False
                 settings.close()
                 return
-    settings.close()
-
 # 在用户输入-c即主动要求修改语音输出配置时进行修改
 def changedata():
         with open("settings.txt","w",encoding="utf-8") as settings:
@@ -93,13 +111,13 @@ def help_about():
 5. -contact 联系作者
 6. -official 前往官方网站(网站暂未完全开发，暂时无法访问）
 7. -help 或者 -about 本程序的帮助和关于界面
-8. -
-7. 同时按下Crrl+C结束程序。
+8, -cls:清除当前页面
+0. 同时按下Crrl+C结束程序。
 可以开始愉快的聊天了！
 ''')
-
+writingdata()
+help_about()
 while True:
-    writingdata()
     a=input("你：")
     if a[0]=='-':
         if a=="-c":
@@ -112,6 +130,10 @@ while True:
             contactau()
         elif a=="-official":
             webbrowser.open_new('https://billma.top')
+        elif a=="-help" or a=="-about":
+            help_about()
+        elif a=="-cls":
+            os.system("cls")
         else:
             print("Error:入参错误")
     else:
