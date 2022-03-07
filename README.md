@@ -20,11 +20,7 @@ pip install -r requirements.txt
 
 **这里需要注意：如果你手动安装库，pyttsx3库需要2.72版本（pip install pyttsx3==2.72），否则会报错**
 
-<<<<<<< HEAD
 **Warning: pyttsx3 needs 2.72  .Otherwise, the interpreter will report an error.**
-=======
-**Warning: pyttsx3 needs 2.72.Otherwise, the interpreter will report an error.**
->>>>>>> bea9590f01289607374bd8a76f601ad94c3454bd
 
 ## 2.架构/What's this?
 
@@ -44,12 +40,9 @@ pip install -r requirements.txt
 
 ## 4.更新日志/Update log
 
-<<<<<<< HEAD
 - 2022/3/7 2.4.3 修复了`read()`函数在读入时无法识别utf-8字符的问题，将默认的gbk字符表切换成了utf-8字符
 - 2022/3/6 2.4.0正式版和2.4.2Developer Beta 添加自动检测和生成settings.txt的代码，目录下没有settings.txt不会报错或者闪退了。
-=======
 - 2022/3/6 2.4.1-2.4.2添加自动检测和生成settings.txt的代码，目录下没有settings.txt不会报错或者闪退了。
->>>>>>> bea9590f01289607374bd8a76f601ad94c3454bd
 - 2022/3/5 2.3.0 添加settings.txt可以让用户自主选择是否开启pyttsx3语音播报
 - 2022/3/4 2.2.0添加目录并给用户更多选项
 - 2022/3/3 2.0.0Rewrite(2.1.0)腾空出世，将这个8行的陈旧的代码翻出来重构并重新编写，但是已经无法重现当年辉煌
@@ -67,7 +60,6 @@ pip install -r requirements.txt
 
 江苏省苏州市的一个普通高中牲，一个在省赛就被刷下来的信息学奥林匹克竞赛选手，热爱编程，但不喜欢前端。
 
-<<<<<<< HEAD
 欢迎通过以下联系方式与我探讨信息竞赛、博客搭建、学术讨论以及扯皮：
 
 - QQ:36937975
@@ -81,9 +73,4 @@ pip install -r requirements.txt
 
 ## LICENSE
 
-[MIT LICENSE](LICENSE) 
-=======
-## LICENSE
-
-[MIT LICENSE](LICENSE) 
->>>>>>> bea9590f01289607374bd8a76f601ad94c3454bd
+[MIT LICENSE](LICENSE)
