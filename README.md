@@ -18,9 +18,9 @@ After cloning it,you need pip some requirements:
 pip install -r requirements.txt
 ```
 
-**这里需要注意：如果你手动安装库，pyttsx3库需要2.72版本（pip install pyttsx3==2.72），否则会报错**
+**这里需要注意：如果你手动安装库，pyttsx3库需要2.71版本（pip install pyttsx3==2.72），否则会报错**
 
-**Warning: pyttsx3 needs 2.72  .Otherwise, the interpreter will report an error.**
+**Warning: pyttsx3 needs 2.71  .Otherwise, the interpreter will report an error.**
 
 ## 2.架构/What's this?
 
